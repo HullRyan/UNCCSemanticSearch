@@ -7,7 +7,7 @@ This repository contains the code for our Semantic Web Search project at the Uni
 In total, the project consists of three main components, which in turn are deisgned as a complete machine learning pipeline. The three components are as follows:
 
 1. A [web crawler](#web-crawler) that scrapes the UNCC' site for data, preprocesses, and stores it in a database.
-2. An [semantic web search engine](#semantic-web-search-engine) that allows users to search for information on the UNCC' site using natural language queries.
+2. A [semantic web search engine](#semantic-web-search-engine) that allows users to search for information on the UNCC' site using natural language queries.
 3. A [web interface](#web-interface) that allows users to interact with the search engine.
 
 ## Table of Contents
