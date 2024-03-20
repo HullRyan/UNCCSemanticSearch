@@ -1,160 +1,54 @@
 [
     {
-        "summary": "The University of North Carolina at Charlotte website provides information about the university's academic programs, research, events, and student life. It showcases the diverse range of opportunities available to students, including academic, research, and extracurricular activities. The website also highlights the university's commitment to accessibility and diversity.",
+        "summary": "The website focuses on the topic of 'R' by providing information and resources related to that subject.",
         "topics": [
-            "Academic Programs",
-            "Research",
-            "Events",
-            "Student Life"
+            "R"
         ],
         "tags": [
-            "UNC Charlotte",
-            "Academic",
-            "Research",
-            "Events",
-            "Student"
+            "R"
         ],
-        "url": "https://charlotte.edu"
+        "url": "U"
     },
     {
-        "summary": "The UNC Charlotte School of Data Science's Health Informatics and Analytics Master's program is designed to transform the quality and efficiency of healthcare through data analysis. The program offers two academic paths: a Graduate Certificate and a Master's degree, both flexible and accommodating both full-time and part-time students. Both programs provide students with the skills and knowledge to analyze and transform data into actionable intelligence in the pursuit of a healthier society.",
+        "summary": "The purpose of the website is unclear from the context, but it likely focuses on a specific topic related to the letter 't'. The main topics covered in the text are likely related to the letter 't' in some way.",
         "topics": [
-            "Health Informatics and Analytics",
-            "Data Science"
+            "Letter T",
+            "Topics related to the letter T"
         ],
         "tags": [
-            "Healthcare",
-            "Data Analysis"
+            "#T",
+            "#letterT"
         ],
-        "url": "http://hi.charlotte.edu"
+        "url": "T"
     },
     {
-        "summary": "Learning Communities at UNC Charlotte provide small, supportive living and learning environments for students transitioning to campus life. These programs offer various academic and social opportunities, fostering close relationships and friendships among students with shared interests.",
+        "summary": "The purpose of the website is not explicitly stated in the context, but it likely focuses on providing information or resources related to the letter 'T'.",
         "topics": [
-            "Learning Communities",
-            "University Life",
-            "Student Success"
-        ],
-        "tags": [
-            "#LearningCommunities #UNCCharlotte #StudentSuccess"
-        ],
-        "url": "https://lc.charlotte.edu"
-    },
-    {
-        "summary": "Welcome to the UNC Charlotte Urban Institute, a nonpartisan applied research and community outreach institute focused on addressing social, economic, and environmental challenges facing communities in the Charlotte region.",
-        "topics": [
-            "Urban Institute",
-            "Research",
-            "Community Outreach"
-        ],
-        "tags": [
-            "UNC Charlotte",
-            "Urban",
-            "Research",
-            "Community",
-            "Outreach"
-        ],
-        "url": "https://ui.charlotte.edu"
-    },
-    {
-        "summary": "CxC website provides resources and support for faculty and students to enhance communication across the curriculum. It offers consultations, faculty development, and student communication consultant services to help improve teaching and learning.",
-        "topics": [
-            "Communication Across the Curriculum",
-            "Faculty Development",
-            "Student Communication"
-        ],
-        "tags": [
-            "CxC",
-            "Communication",
-            "Faculty",
-            "Teaching",
-            "Learning"
-        ],
-        "url": "http://cac.charlotte.edu"
-    },
-    {
-        "summary": "The Office of Institutional Effectiveness & Analytics (OIEA) collects, analyzes, and disseminates data for various purposes, including external reporting, internal planning, research, and student support.",
-        "topics": [
-            "Institutional Effectiveness & Analytics",
-            "Data Analysis",
-            "Student Support"
-        ],
-        "tags": [
-            "OIEA",
-            "Data",
-            "Analytics",
-            "Student",
-            "Research"
-        ],
-        "url": "https://ir.charlotte.edu"
-    },
-    {
-        "summary": "UNC Charlotte website for students, faculty, and staff. Provides resources and login access for various platforms.",
-        "topics": [
-            "University",
-            "Student Life",
-            "Faculty",
-            "Staff",
+            "Letter T",
+            "Information",
             "Resources"
         ],
         "tags": [
-            "UNC Charlotte",
-            "edu",
-            "login",
-            "NinerNET",
-            "Shibboleth",
-            "NinerNET Login"
+            "T",
+            "letter",
+            "text",
+            "information",
+            "resources"
         ],
-        "url": "https://my.charlotte.edu"
+        "url": "T"
     },
     {
-        "summary": "Welcome to the William States Lee College of Engineering Student Professional Development and Employer Outreach website! We offer a variety of programs and services designed to assist students and alumni in their professional development. Our hope is that students will take advantage of the many opportunities to learn about the world of engineering, network with professionals, and hone their professional development skills.",
+        "summary": "The purpose of the website is to provide information about a specific topic, 't'. The main topics covered in the text are 'a', 'b', and 'c'. The website also includes relevant tags and keywords that users may search for to find the site in a search engine.",
         "topics": [
-            "Student Professional Development",
-            "Career Services",
-            "Networking"
+            "a",
+            "b",
+            "c"
         ],
         "tags": [
-            "student-professional-development",
-            "career-services",
-            "networking"
+            "topic1",
+            "topic2",
+            "topic3"
         ],
-        "url": "https://pd.charlotte.edu"
-    },
-    {
-        "summary": "Testimonials from students who participated in the International Programs Office (IOPE) programs at the University of Charlotte.",
-        "topics": [
-            "International Programs",
-            "University of Charlotte",
-            "Student Testimonials"
-        ],
-        "tags": [
-            "IOPE",
-            "University",
-            "Students",
-            "Testimonials"
-        ],
-        "url": "http://iop.charlotte.edu"
-    },
-    {
-        "summary": "The University of North Carolina at Charlotte's Human Resources Department website provides valuable information and resources for current and prospective employees and supervisors. It covers various topics such as employment opportunities, benefits, training, personnel policies, and resources for employee support.",
-        "topics": [
-            "Employment",
-            "Benefits",
-            "Training",
-            "Personnel Policies",
-            "Resources"
-        ],
-        "tags": [
-            "UNC Charlotte",
-            "Human Resources",
-            "University",
-            "Jobs",
-            "Benefits",
-            "Training",
-            "Policies",
-            "Support"
-        ],
-        "url": "https://hr.charlotte.edu"
+        "url": "p"
     }
 ]
