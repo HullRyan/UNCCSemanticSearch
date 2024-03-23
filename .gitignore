@@ -130,3 +130,11 @@ dist
 .pnp.*
 
 /myenv/*
+
+# quorto / midterm demo
+
+Midterm Demo/.quarto
+Midterm Demo/Demo_Files
+Midterm Demo/_quarto.yml
+Midterm Demo/demo.html
+Midterm Demo/_quarto.yml

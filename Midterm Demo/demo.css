@@ -1,0 +1,30 @@
+.reveal .mermaid {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.reveal svg {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.slides {
+    width: 90rem !important;
+}
+
+input {
+    width: 100% !important;
+}
+
+#user-interface-1 input,
+#user-interface-1 form {
+    width: 100% !important;
+}
+
+#user-interface-1 label {
+    width: 20rem !important;
+}
+
+.results-display {
+    font-size: 50%;
+}
