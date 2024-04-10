@@ -3,11 +3,6 @@ name: Build and push docker image
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - './web-server/app.py'
-      - './web-server/requirements.txt'
-      - './web-server/Dockerfile'
-      - '.github/workflows/docker-build.yml'
 
 jobs:
   push_to_registry:
