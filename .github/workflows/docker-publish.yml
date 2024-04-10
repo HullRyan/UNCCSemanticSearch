@@ -4,9 +4,9 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - '**.py'
-      - 'requirements.txt'
-      - 'Dockerfile'
+      - './web-server/app.py'
+      - './web-server/requirements.txt'
+      - './web-server/Dockerfile'
       - '.github/workflows/docker-build.yml'
   
 jobs:
