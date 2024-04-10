@@ -1,5 +1,6 @@
 import txtai, json
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # TXTAI Embeddings
 embeddings = txtai.Embeddings(path="sebastian-hofstaetter/distilbert-dot-tas_b-b256-msmarco", content=True)
@@ -27,6 +28,7 @@ def explain(query, limit=1):
 
 # Server
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/search', methods=['POST'])
 def search_endpoint():
