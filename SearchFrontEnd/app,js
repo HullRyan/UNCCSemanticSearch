@@ -1,0 +1,37 @@
+function postQuery() {
+    const endpoint = document.getElementById('functionSelect').value;
+    const query = document.getElementById('queryInput').value;
+    const maxResults = document.getElementById('maxResultsInput').value;
+
+    fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ query: query, max_results: parseInt(maxResults) })
+    })
+    .then(response => response.json())
+    .then(data => displayResults(data.results, endpoint))
+    .catch(error => console.error('Error:', error));
+}
+
+function displayResults(results, endpoint) {
+    const resultsElement = document.getElementById('results');
+    resultsElement.innerHTML = '';  // Clear previous results
+
+    if (results.length === 0) {
+        resultsElement.innerHTML = `<p>No results found for this query.</p>`;
+        return;
+    }
+
+    // Display results based on the endpoint for customized formatting
+    if (endpoint === '/search') {
+        resultsElement.innerHTML = `<h3>Search Results:</h3><ul>` + 
+            results.map(result => `<li>${result}</li>`).join('') + 
+            `</ul>`;
+    } else { // '/explain'
+        resultsElement.innerHTML = `<h3>Explanation:</h3><ul>` + 
+            results.map(result => `<li>${result}</li>`).join('') + 
+            `</ul>`;
+    }
+}

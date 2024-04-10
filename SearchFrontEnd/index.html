@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Embeddings App</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<h1>University of North Carolina - Semantic Search Engine</h1>
+        <h2>ITCS 6150 - Intelligent Systems - Group 2</h2>
+		<div>
+			<label for="functionSelect">Function:</label>
+			<select id="functionSelect">
+				<option value="/search">Search</option>
+				<option value="/explain">Explain</option>
+			</select>
+		</div>
+		<div>
+			<label for="queryInput">Query:</label>
+			<input type="text" id="queryInput" />
+			<label for="maxResultsInput">Max Results:</label>
+			<input type="number" id="maxResultsInput" value="5" />
+			<button onclick="postQuery()">Submit</button>
+		</div>
+		<div id="results"></div>
+
+		<script>
+			function postQuery() {
+				const endpoint = document.getElementById("functionSelect").value;
+				const query = document.getElementById("queryInput").value;
+				const maxResults = document.getElementById("maxResultsInput").value;
+
+				fetch(endpoint, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						query: query,
+						max_results: parseInt(maxResults),
+					}),
+				})
+					.then((response) => response.json())
+					.then((data) => displayResults(data.results, endpoint))
+					.catch((error) => console.error("Error:", error));
+			}
+
+			function displayResults(results, endpoint) {
+				const resultsElement = document.getElementById("results");
+				resultsElement.innerHTML = ""; // Clear previous results
+
+				if (results.length === 0) {
+					resultsElement.innerHTML = `<p>No results found for this query.</p>`;
+					return;
+				}
+
+				let formattedResults = "";
+
+				if (endpoint === "/explain") {
+					formattedResults = results
+						.map((result) => {
+							// Convert text to HTML with color-coded tokens
+							let tokensHtml = result.text
+								.split(/\s+/)
+								.map((word) => {
+									let token = result.tokens.find((t) => t[0] === word);
+									let score = token ? token[1] : 0;
+									return `<span style="background-color:${getColorForScore(
+										score
+									)};">${word}</span>`;
+								})
+								.join(" ");
+
+							tokensHtml = tokensHtml.replace(/\n/g, "<br>"); // Replace newlines with HTML line breaks
+
+							return `<div class="result-card">
+                        <div class="result-header">
+                            <a href="${result.id}" target="_blank">${
+								result.id
+							}</a>
+                            <div class="result-score">Score: ${result.score.toFixed(
+															3
+														)}</div>
+                        </div>
+                        <div class="result-summary">${tokensHtml}</div>
+                    </div>`;
+						})
+						.join("");
+				} else {
+					// Handle regular search results display
+					formattedResults = results
+						.map((result) => {
+							let summaryText = result.text.replace(/\n/g, "<br>");
+							return `<div class="result-card">
+                        <div class="result-header">
+                            <a href="${result.id}" target="_blank">${
+								result.id
+							}</a>
+                            <div class="result-score">Score: ${result.score.toFixed(
+															3
+														)}</div>
+                        </div>
+                        <div class="result-summary">${summaryText}</div>
+                    </div>`;
+						})
+						.join("");
+				}
+
+				resultsElement.innerHTML = `<h3>Search Results:</h3>${formattedResults}`;
+			}
+
+			function getColorForScore(score) {
+				let lightness;
+				let saturation = 100; // Keep saturation constant for vivid colors
+				let hue;
+
+				// Determine the hue based on the sign of the score
+				if (score < 0) {
+					hue = 0; // Red for negative scores
+					// Normalize and invert lightness for negative scores (darker as they get more negative)
+					lightness = 100 - (Math.abs(score) / 0.005) * 40; // Assuming -0.005 is the most negative score observed
+				} else {
+					hue = 152;
+					lightness = 100 - (score / 0.005) * 40;
+				}
+
+				lightness = Math.max(70, Math.min(100, lightness));
+
+				// Adjust for scores very close to zero to have a neutral appearance
+				if (Math.abs(score) < 0.0001) {
+					saturation = 0; // Drop saturation to 0 for gray
+					lightness = 100; // White
+				}
+
+				console.log(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
+
+				return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+			}
+		</script>
+	</body>
+</html>
