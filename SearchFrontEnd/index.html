@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<h1>University of North Carolina - Semantic Search Engine</h1>
-        <h2>ITCS 6150 - Intelligent Systems - Group 2</h2>
+		<h2>ITCS 6150 - Intelligent Systems - Group 2</h2>
 		<div>
 			<label for="functionSelect">Function:</label>
 			<select id="functionSelect">
@@ -22,13 +22,20 @@
 			<input type="number" id="maxResultsInput" value="5" />
 			<button onclick="postQuery()">Submit</button>
 		</div>
-		<div id="results"></div>
+		<div id="spinner" style="display: none"></div>
+		<div>
+			<h3>Search Results:</h3>
+			<div id="results">None to show</div>
+		</div>
 
 		<script>
 			function postQuery() {
 				const endpoint = document.getElementById("functionSelect").value;
 				const query = document.getElementById("queryInput").value;
 				const maxResults = document.getElementById("maxResultsInput").value;
+
+				// Show the spinner
+				document.getElementById("results").innerHTML = `<div id="spinner" style="display: block"></div>`;
 
 				fetch(endpoint, {
 					method: "POST",
@@ -41,13 +48,20 @@
 					}),
 				})
 					.then((response) => response.json())
-					.then((data) => displayResults(data.results, endpoint))
-					.catch((error) => console.error("Error:", error));
+					.then((data) => {
+						// Hide the spinner
+						document.getElementById("spinner").style.display = "none";
+						displayResults(data.results, endpoint);
+					})
+					.catch((error) => {
+						// Hide the spinner
+						document.getElementById("spinner").style.display = "none";
+						console.error("Error:", error);
+					});
 			}
 
 			function displayResults(results, endpoint) {
 				const resultsElement = document.getElementById("results");
-				resultsElement.innerHTML = ""; // Clear previous results
 
 				if (results.length === 0) {
 					resultsElement.innerHTML = `<p>No results found for this query.</p>`;
@@ -106,7 +120,7 @@
 						.join("");
 				}
 
-				resultsElement.innerHTML = `<h3>Search Results:</h3>${formattedResults}`;
+				resultsElement.innerHTML = `${formattedResults}`;
 			}
 
 			function getColorForScore(score) {
@@ -131,8 +145,6 @@
 					saturation = 0; // Drop saturation to 0 for gray
 					lightness = 100; // White
 				}
-
-				console.log(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
 
 				return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 			}

@@ -3,7 +3,7 @@ body {
     margin: 20px auto;
     padding: 0;
     background-color: #f4f4f4;
-    max-width: 1280px;
+    width: clamp(600px, 80%, 1280px);
 }
 
 h1 {
@@ -25,7 +25,7 @@ button {
 	margin-bottom: 10px;
 	padding: 10px;
 	border: 1px solid #ddd;
-	border-radius: 4px;
+	border-radius: 5px;
 }
 
 button {
@@ -42,6 +42,7 @@ button:hover {
 	background-color: #fff;
 	border: 1px solid #ddd;
 	padding: 20px;
+    border-radius: 5px;
 }
 
 .result-card {
@@ -73,4 +74,19 @@ button:hover {
 
 .result-summary {
     font-size: 0.9em;
+}
+
+#spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #005035;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
