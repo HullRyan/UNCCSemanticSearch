@@ -3,7 +3,7 @@ body {
     margin: 20px auto;
     padding: 0;
     background-color: #f4f4f4;
-    width: clamp(600px, 80%, 1280px);
+    width: clamp(300px, 80%, 1280px);
 }
 
 h1 {
@@ -89,4 +89,24 @@ button:hover {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+#queryInput {
+    flex-grow: 1;
+    height: 30px; /* or whatever height you want */
+}
+
+#maxResultsInput {
+    width: 50px;
 }

@@ -8,20 +8,26 @@
 	<body>
 		<h1>University of North Carolina - Semantic Search Engine</h1>
 		<h2>ITCS 6150 - Intelligent Systems - Group 2</h2>
-		<div>
-			<label for="functionSelect">Function:</label>
-			<select id="functionSelect">
-				<option value="https://search.8372012.xyz/search">Search</option>
-				<option value="https://search.8372012.xyz/explain">Explain</option>
-			</select>
-		</div>
-		<div>
-			<label for="queryInput">Query:</label>
-			<input type="text" id="queryInput" />
-			<label for="maxResultsInput">Max Results:</label>
-			<input type="number" id="maxResultsInput" value="5" />
-			<button onclick="postQuery()">Submit</button>
-		</div>
+		<br />
+		<br />
+		<br />
+		<form id="queryForm" onsubmit="event.preventDefault(); postQuery();">
+			<div class="search-container">
+				<input type="text" id="queryInput" placeholder="Enter your query..." />
+				<div class="input-group">
+					<input type="number" id="maxResultsInput" value="5" />
+					<button type="submit" id="searchButton">Search</button>
+					<button
+						type="button"
+						id="explainButton"
+						onclick="postQuery('explain')"
+					>
+						Explain
+					</button>
+				</div>
+			</div>
+		</form>
+		<br />
 		<div id="spinner" style="display: none"></div>
 		<div>
 			<h3>Search Results:</h3>
@@ -29,13 +35,16 @@
 		</div>
 
 		<script>
-			function postQuery() {
-				const endpoint = document.getElementById("functionSelect").value;
+			function postQuery(type) {
+				const endpoint =
+					type === "explain"
+						? "https://search.8372012.xyz/explain"
+						: "https://search.8372012.xyz/search";
 				const query = document.getElementById("queryInput").value;
 				const maxResults = document.getElementById("maxResultsInput").value;
 
 				// Show the spinner
-				document.getElementById("results").innerHTML = `<div id="spinner" style="display: block"></div>`;
+				document.getElementById("spinner").style.display = "block";
 
 				fetch(endpoint, {
 					method: "POST",
