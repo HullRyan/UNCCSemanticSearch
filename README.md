@@ -34,6 +34,10 @@ The semantic web search engine allows users to search for information on the UNC
 
 The web interface allows users to interact with the search engine. The interface is implemented using HTML, CSS, and JavaScript. It uses the following libraries:
 
+## Running Website
+This is the website showcasing our semantic search engine:
+https://hullryan.github.io/UNCCSemanticSearch/
+
 ## Contributors
 
 - [Ryan Hull](https://www.linkedin.com/in/ryan-hull-478b64178/)
